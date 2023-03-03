@@ -12,7 +12,7 @@ if 'history' not in st.session_state:
 def generate_response(prompt, history):
     messagees = (
         [
-            {"role": "system", "content": "You are a helpful assistant named YChat."},
+            {"role": "system", "content": "You are a helpful assistant named YChat made by CloseAI."},
         ]
         + history
         + [
