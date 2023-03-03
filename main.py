@@ -12,7 +12,7 @@ if 'history' not in st.session_state:
 def generate_response(prompt, history):
     messagees = (
         [
-            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "system", "content": "You are a helpful assistant named YBot."},
         ]
         + history
         + [
@@ -26,7 +26,7 @@ def generate_response(prompt, history):
     return message
 
 
-st.title("YChat: a bot")
+st.title("YChat: 智能聊天机器人")
 
 # Storing the chat
 if "generated" not in st.session_state:
@@ -37,7 +37,7 @@ if "past" not in st.session_state:
 
 
 def get_text():
-    input_text = st.text_input("You: ", "Hello, how are you?", key="input")
+    input_text = st.text_input("You: ", "你好, 你是谁?", key="input",max_chars=512)
     return input_text
 
 
