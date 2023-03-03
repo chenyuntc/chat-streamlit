@@ -1,4 +1,4 @@
-# Build your own Chatbot
+# Build your own Chatbot with openai API
 
 ## Website: https://ychatai.streamlit.app/
 
