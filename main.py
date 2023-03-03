@@ -1,4 +1,4 @@
-# code borrowed from https://medium.com/@avra42/build-your-own-chatbot-with-openai-gpt-3-and-streamlit-6f1330876846
+# code based on https://medium.com/@avra42/build-your-own-chatbot-with-openai-gpt-3-and-streamlit-6f1330876846
 import openai
 import streamlit as st
 
