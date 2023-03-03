@@ -45,10 +45,10 @@ if user_input:
     output = generate_response(user_input, history)
     # store the output
     st.session_state.past.append(user_input)
-    st.session_state.generated.append(output)
+    st.session_state.generated.append(output+str(history))
     history.append(dict(role="user", content=user_input))
     history.append(dict(role="assistant", content=output))
-    history = history[:6]  # only keep last 3 conversations
+    history = history[-6:]  # only keep last 3 conversations
 
 if st.session_state["generated"]:
     for i in range(len(st.session_state["generated"]) - 1, -1, -1):
