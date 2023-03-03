@@ -5,7 +5,7 @@ import streamlit as st
 from streamlit_chat import message
 
 openai.api_key = st.secrets["API_KEY"]
-history = []
+st.session_state['history'] = []
 
 def generate_response(prompt, history):
     messagees = (
@@ -46,9 +46,9 @@ if user_input:
     # store the output
     st.session_state.past.append(user_input)
     st.session_state.generated.append(output+str(history))
-    history.append(dict(role="user", content=user_input))
-    history.append(dict(role="assistant", content=output))
-    history = history[-6:]  # only keep last 3 conversations
+    st.session_state['history'] .append(dict(role="user", content=user_input))
+    st.session_state['history'] .append(dict(role="assistant", content=output))
+    st.session_state['history']  = st.session_state['history'] [-6:]  # only keep last 3 conversations
 
 if st.session_state["generated"]:
     for i in range(len(st.session_state["generated"]) - 1, -1, -1):
