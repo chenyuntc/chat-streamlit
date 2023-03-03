@@ -12,7 +12,7 @@ if 'history' not in st.session_state:
 def generate_response(prompt, history):
     messagees = (
         [
-            {"role": "system", "content": "You are a helpful assistant named YBot."},
+            {"role": "system", "content": "You are a helpful assistant named YChat."},
         ]
         + history
         + [
@@ -37,7 +37,7 @@ if "past" not in st.session_state:
 
 
 def get_text():
-    input_text = st.text_input("You: ", "你好, 你是谁?", key="input",max_chars=512)
+    input_text = st.text_input("输入(回车发送): ", "", key="input",max_chars=512)
     return input_text
 
 
