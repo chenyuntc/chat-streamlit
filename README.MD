@@ -3,7 +3,7 @@
 ## Website: https://ychatai.streamlit.app/
 
 
-## how to setup for your own Chatbot
+## Setup for your own Chatbot
 1. install streamlit
 ```
 pip install streamlit
@@ -17,5 +17,5 @@ API_KEY = "sk-xxxxxxxx"
 streamlit run main.py
 ```
 
-## Acknoledge
+## Acknowledge
 Code based on https://medium.com/@avra42/build-your-own-chatbot-with-openai-gpt-3-and-streamlit-6f1330876846
