@@ -12,7 +12,7 @@ if 'history' not in st.session_state:
 def generate_response(prompt, history):
     messagees = (
         [
-            {"role": "system", "content": "You are YChat made by CloseAI. Be concise."},
+            {"role": "system", "content": "You are a helpful assistant named YChat made by CloseAI."},
         ]
         + history
         + [
@@ -49,8 +49,8 @@ if user_input:
     st.session_state.past.append(user_input)
     st.session_state.generated.append(output)
     st.session_state['history'].append(dict(role="user", content=user_input[:256]))
-    st.session_state['history'].append(dict(role="assistant", content=output[:256]))
-    st.session_state['history']  = st.session_state['history'][-3:]  # only keep last 1.5 conversations
+    st.session_state['history'].append(dict(role="assistant", content=output[:512]))
+    st.session_state['history']  = st.session_state['history'][-5:]  # only keep last 1.5 conversations
 
 if st.session_state["generated"]:
     for i in range(len(st.session_state["generated"]) - 1, -1, -1):
