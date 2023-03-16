@@ -30,7 +30,7 @@ def generate_response(prompt, history):
     return message
 
 
-st.title("YChat: 智能聊天机器人")
+# st.title("YChat: 智能聊天机器人")
 
 # Storing the chat
 if "generated" not in st.session_state:
