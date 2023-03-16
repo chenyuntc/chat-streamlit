@@ -7,7 +7,7 @@ if 'history' not in st.session_state:
 
 def message_fn(messages, role='user'):
     user_header = '**:blue[您: ]**'
-    bot_header = ':robot_face: '
+    bot_header = ':robot_face:: '
     messages = [f'''{bot_header} {answer} \n \n {user_header}  {question} \n \n
       ''' for question,answer in zip (st.session_state['past'], st.session_state['generated'])][::-1]
     markdown = '\n'.join(messages)
