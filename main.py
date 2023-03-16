@@ -13,6 +13,14 @@ def message_fn(messages, role='user'):
     markdown = '\n'.join(messages)
     st.markdown(markdown,unsafe_allow_html=True)
 
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+
 def generate_response(prompt, history):
     messagees = (
         [
