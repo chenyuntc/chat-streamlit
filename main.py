@@ -42,9 +42,10 @@ def clear_text():
         st.markdown(f'{user_header} {user_input} \n\n')
         res_st=st.empty()
         res_text = ''
-        for xx in output:
+        for idx,xx in enumerate(output):
             if 'content'  in xx.choices[0]['delta']:
                 res_text += xx.choices[0]['delta']['content']
+            if idx %3==0:
                 res_st.markdown(f"{bot_header} {res_text}")
         st.session_state.past.append(user_input)
         st.session_state.generated.append(res_text)
