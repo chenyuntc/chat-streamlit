@@ -2,6 +2,7 @@ import openai
 import streamlit as st
 from google.cloud import firestore
 from datetime import datetime
+st.set_page_config(page_title='YChat - CloseAI', page_icon=':robot_face:')
 @st.cache_resource()
 def get_db():
     firebase_setting=st.secrets['firebase']
@@ -51,7 +52,6 @@ def clear_text():
         for idx,xx in enumerate(output):
             if 'content'  in xx.choices[0]['delta']:
                 res_text += xx.choices[0]['delta']['content']
-            if idx %3==0:
                 res_st.markdown(f"{bot_header} {res_text}")
         st.session_state.past.append(user_input)
         st.session_state.generated.append(res_text)
