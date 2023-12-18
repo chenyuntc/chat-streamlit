@@ -51,8 +51,8 @@ def clear_text():
         res_st=st.empty()
         res_text = ''
         for idx,xx in enumerate(output):
-            if 'content'  in xx.choices[0]['delta']:
-                res_text += xx.choices[0]['delta']['content']
+            if xx.choices[0].delta.content:
+                res_text += xx.choices[0].delta.content
                 res_st.markdown(f"{bot_header} {res_text}")
         st.session_state.past.append(user_input)
         st.session_state.generated.append(res_text)
