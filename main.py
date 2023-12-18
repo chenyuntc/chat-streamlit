@@ -1,10 +1,10 @@
 from openai import OpenAI
 
-client = OpenAI(api_key=st.secrets["API_KEY"])
 import streamlit as st
 from google.cloud import firestore
 from datetime import datetime
 st.set_page_config(page_title='YChat - CloseAI', page_icon=':robot_face:')
+client = OpenAI(api_key=st.secrets["API_KEY"])
 @st.cache_resource()
 def get_db():
     firebase_setting=st.secrets['firebase']
