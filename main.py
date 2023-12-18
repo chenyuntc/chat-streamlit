@@ -1,4 +1,6 @@
-import openai
+from openai import OpenAI
+
+client = OpenAI(api_key=st.secrets["API_KEY"])
 import streamlit as st
 from google.cloud import firestore
 from datetime import datetime
@@ -16,7 +18,6 @@ if 'db' not in st.session_state:
     st.session_state["past"] = []
     st.session_state["history"] = []
 
-openai.api_key = st.secrets["API_KEY"]
 hide_streamlit_style = """
             <style>
             #MainMenu {visibility: hidden;}
@@ -29,7 +30,7 @@ def generate_response(prompt, history):
     config = dict(role='system', content="You are a helpful assistant named YChat made by CloseAI, be concise")
     prompt = dict(role='user',content=prompt)
     messages = [config, *history, prompt] 
-    completions = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=messages,stream=True)
+    completions = client.chat.completions.create(model="gpt-3.5-turbo", messages=messages,stream=True)
     return completions
 
 def clear_text():
