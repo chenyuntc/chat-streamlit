@@ -17,6 +17,7 @@ if 'db' not in st.session_state:
     st.session_state["generated"] = []
     st.session_state["past"] = []
     st.session_state["history"] = []
+    st.session_state['model'] = 'gpt-3.5-turbo'
 
 hide_streamlit_style = """
             <style>
@@ -30,12 +31,14 @@ def generate_response(prompt, history):
     config = dict(role='system', content="You are a helpful assistant named YChat made by CloseAI, be concise")
     prompt = dict(role='user',content=prompt)
     messages = [config, *history, prompt] 
-    completions = client.chat.completions.create(model="gpt-3.5-turbo", messages=messages,stream=True)
+    completions = client.chat.completions.create(model=st.session_state['model'], messages=messages,stream=True)
     return completions
 
 def clear_text():
     user_input = st.session_state.get("input", None)
     if user_input:
+        if user_input.startswith('/use gpt4'):
+            st.session_state['model'] = 'gpt-4-1106-preview'
         user_header = "**:blue[您: ]**"
         bot_header = ":robot_face:: "
         output = generate_response(user_input, st.session_state["history"])
