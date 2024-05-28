@@ -38,7 +38,7 @@ def clear_text():
     user_input = st.session_state.get("input", None)
     if user_input:
         if user_input.startswith('/use gpt4'):
-            st.session_state['model'] = 'gpt-4-1106-preview'
+            st.session_state['model'] = 'gpt-4o'
         user_header = "**:blue[您: ]**"
         bot_header = ":robot_face:: "
         output = generate_response(user_input, st.session_state["history"])
