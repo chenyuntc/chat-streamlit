@@ -75,4 +75,4 @@ def clear_text():
         )
 
 st.chat_input(
-    "回车发送", "", key="input", max_chars=512, on_submit=clear_text)#,label_visibility='hidden' if len(st.session_state['history']) else 'visible')
+    "回车发送", key="input", max_chars=512, on_submit=clear_text)#,label_visibility='hidden' if len(st.session_state['history']) else 'visible')
