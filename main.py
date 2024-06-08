@@ -74,5 +74,5 @@ def clear_text():
             merge=True
         )
 
-st.text_input(
-    "回车发送, 或点击空白位置", "", key="input", max_chars=512, on_change=clear_text,label_visibility='hidden' if len(st.session_state['history']) else 'visible')
+st.chat_input(
+    "回车发送", "", key="input", max_chars=512, on_submit=clear_text)#,label_visibility='hidden' if len(st.session_state['history']) else 'visible')
