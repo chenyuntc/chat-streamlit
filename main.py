@@ -26,7 +26,7 @@ hide_streamlit_style = """
             footer {visibility: hidden;}
             </style>
             """
-# st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 def generate_response(prompt, history):
     config = dict(role='system', content="You are a helpful assistant named YChat made by CloseAI, be concise")
@@ -63,7 +63,6 @@ def clear_text():
         st.session_state["history"].append(dict(role="user", content=user_input[:256]))
         st.session_state["history"].append(dict(role="assistant", content=res_text[-256:]))
         st.session_state["history"] = st.session_state["history"][-4:]
-        # st.session_state["input"] = ""  # ,None)
         n_msg=len(st.session_state["past"])
         st.session_state['db'].set(
             {
@@ -75,4 +74,4 @@ def clear_text():
         )
 
 st.chat_input(
-    "回车发送", key="input", max_chars=512, on_submit=clear_text)#,label_visibility='hidden' if len(st.session_state['history']) else 'visible')
+    "回车发送", key="input", max_chars=512, on_submit=clear_text)
