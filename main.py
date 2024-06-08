@@ -26,7 +26,7 @@ hide_streamlit_style = """
             footer {visibility: hidden;}
             </style>
             """
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+# st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 def generate_response(prompt, history):
     config = dict(role='system', content="You are a helpful assistant named YChat made by CloseAI, be concise")
