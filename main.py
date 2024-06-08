@@ -63,7 +63,7 @@ def clear_text():
         st.session_state["history"].append(dict(role="user", content=user_input[:256]))
         st.session_state["history"].append(dict(role="assistant", content=res_text[-256:]))
         st.session_state["history"] = st.session_state["history"][-4:]
-        st.session_state["input"] = ""  # ,None)
+        # st.session_state["input"] = ""  # ,None)
         n_msg=len(st.session_state["past"])
         st.session_state['db'].set(
             {
