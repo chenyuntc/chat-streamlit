@@ -17,7 +17,8 @@ if 'db' not in st.session_state:
     st.session_state["generated"] = []
     st.session_state["past"] = []
     st.session_state["history"] = []
-    st.session_state['model'] = 'gpt-3.5-turbo'
+    #st.session_state['model'] = 'gpt-3.5-turbo'
+    st.session_state['model'] = 'gpt-4o'
 
 hide_streamlit_style = """
             <style>
